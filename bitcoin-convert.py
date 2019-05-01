@@ -22,23 +22,9 @@ def eu_btc():
     a = int(input("Merci d'entrer un montant en EU à transformer en bitcoins. "))
     print("La valeur de {} € est {} bitcoins.".format(a, 1 / float(r.json()['bpi']['EUR']['rate'].replace(",", "")) *a))
 
-
-print("Méthode 1 = 1 Bitcoin en EU // Méthode 2 = 1 Bitcoin en USD")
-print("Méthode 3 = USD vers Bitcoin // Méthode 4 = EU vers Bitcoin")
-methode = input("Merci d'entrer votre méthode. ")
-if methode == "1":
-    btc_eu()
-elif methode == "2":
-    btc_usd()
-elif methode == "3":
-    usd_btc()
-elif methode == "4":
-    eu_btc()
-
-
-while methode != "1" and methode != "2" and methode != "3" and methode != "4":
-    print("Méthode 1 = Bitcoin vers EU // Méthode 2 = Bitcoin vers USD")
-    print("Méthode 3 = USD vers Bitcoin // Méthode 4 = Eu vers Bitcoin")
+def demande():
+    print("Méthode 1 = 1 Bitcoin en EU // Méthode 2 = 1 Bitcoin en USD")
+    print("Méthode 3 = USD vers Bitcoin // Méthode 4 = EU vers Bitcoin")
     methode = input("Merci d'entrer votre méthode. ")
     if methode == "1":
         btc_eu()
@@ -48,6 +34,11 @@ while methode != "1" and methode != "2" and methode != "3" and methode != "4":
         usd_btc()
     elif methode == "4":
         eu_btc()
+        
+demande()
 
-
+while methode != "1" and methode != "2" and methode != "3" and methode != "4":
+    print("Erreur !")
+    demande()
+    
 input("Mettez un caractère pour fermer ")
